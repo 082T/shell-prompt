@@ -1,0 +1,32 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="shell-prompt",
+    version="0.0.1",
+    description=("A command-line tool that converts natural language instructions into shell "
+                 "commands and executes them."),
+    author="Roko Torbarina",
+    author_email="rokotorbarina9@gmail.com",
+    url="https://github.com/082T/shell-prompt",
+    packages=find_packages(),
+    install_requires=[],
+    extras_require={
+        "openai": ["langchain[openai]"],
+        "anthropic": ["langchain[anthropic]"],
+        "google-genai": ["langchain[google-genai]"],
+        "groq": ["langchain[groq]"],
+        "cohere": ["langchain[cohere]"],
+        "langchain-nvidia-ai-endpoints": ["langchain-nvidia-ai-endpoints"],
+        "fireworks": ["langchain[fireworks]"],
+        "mistralai": ["langchain[mistralai]"],
+        "together": ["langchain[together]"],
+        "langchain-xai": ["langchain-xai"],
+        "langchain-perplexity": ["langchain-perplexity"],
+    },
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    license="MIT",
+)
