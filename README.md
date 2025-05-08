@@ -61,7 +61,7 @@ Once installed, you should first configure the tool. Available options are:
 | `-h`, `--help`                          | Show the help message and exit                                                |
 | `--version`                             | Show the program's version number and exit                                    |
 | `--config`                              | Show the current configuration                                                |
-| `--set-provider PROVIDER_NAME         ` | Set the LLM provider                                                          |
+| `--set-provider PROVIDER_NAME`          | Set the LLM provider                                                          |
 | `--set-model MODEL_NAME`                | Set the specific model to use                                                 |
 | `--set-api-key API_KEY`                 | Set the API key for the currently selected provider                           |
 | `--preview`, `--no-preview`             | Enable or disable preview mode (avoid instant execution - enabled by deafult) |
