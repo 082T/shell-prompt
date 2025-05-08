@@ -162,25 +162,21 @@ def validate_config(config: dict):
     Raises:
         ValueError: If any of the required fields are missing or invalid.
     """
-    # Check provider is present and valid
     provider = config.get("provider")
     if provider not in provider_data.AVAILABLE_PROVIDERS:
         raise ValueError("Invalid or missing provider."
                          f"Must be one of: {list(provider_data.AVAILABLE_PROVIDERS)}")
 
-    # Check model is set
     model = config.get("model")
     if not model:
         raise ValueError("Missing 'model' in config.")
 
-    # Check API key for the selected provider is set
     api_keys = config.get("api_keys", {})
     if provider not in api_keys or not api_keys[provider]:
         raise ValueError(f"Missing API key for provider '{provider}' in config['api_keys'].")
 
-    # Optional: Check preview is boolean-like (converted to a boolean)
     preview = config.get("preview")
     if preview in ["true", "false"]:
-        preview = preview == "true"  # Convert string to boolean
+        preview = preview == "true"
     if preview not in [True, False]:
         raise ValueError("Invalid 'preview' value; should be true/false or omitted.")

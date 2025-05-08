@@ -44,16 +44,13 @@ def main():
     2. Update the configuration based on the arguments and validate it.
     3. If a command is provided, process it using the LLM and run the generated shell command.
     """
-    # Parse arguments
     args = parser.get_parser()
 
-    # Update and validate config
     config_manager.manage_config(args)
     config = config_manager.load_config()
-    config_manager.validate_config(config)
 
-    # If the command is provided, process it using the LLM and run the output
     if args.command:
+        config_manager.validate_config(config)
         response = llm.process_command(args.command, config)
         run_command(response, config["preview"])
 

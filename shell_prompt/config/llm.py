@@ -41,12 +41,10 @@ def process_command(prompt: str, config: dict) -> str:
     model_name = config["model"]
     api_key = config["api_keys"].get(provider)
 
-    # Set the appropriate API key in the environment
     if not api_key:
         raise ValueError(f"Missing API key for provider '{provider}'.")
     os.environ[PROVIDER_MAPPING[provider]] = api_key
 
-    # Initialize and call the model
     model = init_chat_model(model=model_name, model_provider=provider)
     messages = [
         SystemMessage(content=SYSTEM_PROMPT),
