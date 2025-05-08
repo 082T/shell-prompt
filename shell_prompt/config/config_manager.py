@@ -137,9 +137,12 @@ def manage_config(args: Namespace) -> None:
         new_config = config.get("api_keys", {})
         new_config[provider] = api_key
         edit_config({"api_keys": new_config})
+    if args.preview is not None:
+        edit_config({"preview": args.preview})
     if args.config:
         config = load_config()
         print(config)
+        sys.exit(0)
 
 
 def validate_config(config: dict):

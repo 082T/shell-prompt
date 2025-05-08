@@ -23,7 +23,6 @@ SYSTEM_PROMPT = (
 )
 
 
-
 def process_command(prompt: str, config: dict) -> str:
     """
     Translates a natural language prompt into a Unix shell command using an LLM.
